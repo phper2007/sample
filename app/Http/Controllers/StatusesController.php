@@ -8,7 +8,7 @@ use Auth;
 
 class StatusesController extends Controller
 {
-    public function __controuct()
+    public function __construct()
     {
         $this->middleware('auth');
     }
@@ -18,6 +18,7 @@ class StatusesController extends Controller
         $this->validate($request, [
             'content' => 'required|max:140'
         ]);
+
 
         Auth::user()->statuses()->create([
             'content' => $request->input('content')
